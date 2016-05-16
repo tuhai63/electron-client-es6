@@ -35,7 +35,7 @@
              </div>                
         </md-toolbar>            
                         
-        <md-content layout-padding class="autoScroll">
+        <md-content layout-padding>
             <form id = "leForm" name = "leForm">
                 <div layout-gt-xs="row">
                     <md-input-container class="md-block" flex-gt-sm>                    
@@ -190,7 +190,7 @@
             <md-button class="md-raised md-danger" ng-click="_ctrl.cancelEdit()">Cancel</md-button>
             <md-button class="md-raised md-warn" ng-click="_ctrl.deleteLegalEntity()">Delete</md-button>     
         </section>
-        <section layout="row" layout-sx="column" layout-align="center center" layout-wrap>    
+        <section layout="row" hide-xs layout-align="center center" layout-wrap>    
             <md-button class="md-raised md-primary" ng-click="_ctrl.viewLegalEntityJson()">View LE JSON</md-button>                
             <md-button class="md-raised md-primary" ng-click="_ctrl.viewLegalEntityGHSTS()">View LE GHSTS</md-button>     
             <md-button class="md-raised md-warn" ng-click="_ctrl.addTestLE()">Add Sample LE to DB</md-button>   
