@@ -1,18 +1,13 @@
-# Electron GHSTS POC 
+# Electron Client ES6
 
-This project was to help boostrap the development of a desktop application based on GHSTS standard XML Schema.
-The ES6 application is based on the App Boilerplate for Electron by Thorsten Hans. For more details on his original work, see the post on his blog https://www.xplatform.rocks/2015/05/04/writing-an-electron-atom-shell-app-using-angular-and-es6/. Other useful reference resouces can be found on the site of JSPM.io (http://jspm.io/), including a good introduction to JSPM at: http://developer.telerik.com/featured/choose-es6-modules-today.
+This project is to test a desktop client with node server.
 
 ## Components and Features
 
-This POC uses the following components and features:
-
  * Electron
- * Angular 1.x (Angular 2.0 is still in beta at this moment)
+ * Angular 1.x 
  * ES6
  * Angular Material
- * XML2JS
- * NoSQL Javascript Database NeDB
 
 ## PreConditions for client
 
