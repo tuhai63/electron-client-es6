@@ -10,7 +10,7 @@
     "electron-app"
   ],
   "author": "Wei Fang",
-  "repository": "https://github.com/weifang993/electron-ghsts-poc.git",
+  "repository": "https://github.com/weifang993/electron-client-es6.git",
   "license": "MIT",
   "devDependencies": {
     "del": "^1.2.0",
@@ -35,7 +35,6 @@
       "css": "github:systemjs/plugin-css@^0.1.20",
       "json": "github:systemjs/plugin-json@^0.1.0",
       "lodash": "npm:lodash@^4.11.1",
-      "nedb": "npm:nedb@^1.7.2",
       "node-uuid": "npm:node-uuid@^1.4.7",
       "path": "npm:path@^0.12.7",
       "q": "npm:q@^1.4.1",

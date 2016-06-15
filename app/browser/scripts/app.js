@@ -5,23 +5,15 @@ import ngAnimate from '../jspm_packages/github/angular/bower-angular-animate@1.4
 import ngMessages from 'angular-messages';
 import {LegalEntityService} from './legal_entity/legalEntityService'; 
 import {LegalEntityController} from './legal_entity/legalEntityController';
-import {ReceiverService} from './receiver/receiverService'; 
-import {ReceiverController} from './receiver/receiverController';
-import {GhstsService} from './ghsts_demo/ghstsService'; 
 import {PickListService} from './common/pickListService';
-import {GhstsController} from './ghsts_demo/ghstsController';
 // notice stylesheet loading from app.js
 import '../jspm_packages/github/angular/bower-material@1.0.4/angular-material.css!';
 
 angular.module('ghstsApp', ['ngRoute', 'ngMaterial', 'ngAnimate', 'ngMessages'])
     .config(config)
     .service('pickListService', [PickListService])
-    .service('legalEntityService', ['$q', LegalEntityService])
-    .controller('legalEntityController', ['$mdDialog', '$mdSidenav', '$location', 'legalEntityService', 'pickListService', LegalEntityController])
-    .service('receiverService', ['$q', ReceiverService])
-    .controller('receiverController', ['$mdDialog', '$mdSidenav', 'receiverService', 'legalEntityService', ReceiverController])
-    .service('ghstsService', ['receiverService', 'legalEntityService', GhstsService])
-    .controller('ghstsController', ['$mdDialog', 'ghstsService', GhstsController]);
+    .service('legalEntityService', ['$http', LegalEntityService])
+    .controller('legalEntityController', ['$mdDialog', '$mdSidenav', '$location', 'legalEntityService', 'pickListService', LegalEntityController]);
 
 function config($routeProvider, $mdThemingProvider) {
     $routeProvider
@@ -30,19 +22,9 @@ function config($routeProvider, $mdThemingProvider) {
             controller: LegalEntityController,
             controllerAs: '_ctrl'
         })
-        .when('/demoGHSTS', {
-            templateUrl: './scripts/ghsts_demo/ghsts.html' ,
-            controller: GhstsController,
-            controllerAs: '_ctrl'
-        })
         .when('/manageLE', {
             templateUrl: './scripts/legal_entity/le-manage.html' ,
             controller: LegalEntityController,
-            controllerAs: '_ctrl'
-        })
-        .when('/manageRcvr', {
-            templateUrl: './scripts/receiver/receiver-manage.html' ,
-            controller: ReceiverController,
             controllerAs: '_ctrl'
         });
     $routeProvider.otherwise({ redirectTo: '/home' });

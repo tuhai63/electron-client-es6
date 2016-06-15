@@ -169,10 +169,11 @@ class LegalEntityController {
     }
     
     getAllLegalEntities() {
-        let self = this;
-        this.legalEntityService.getLegalEntities().then(legalEntities => {
-            self.legalEntities = [].concat(legalEntities);
-            self.selected = legalEntities[0];
+        this.legalEntityService.getLegalEntities().then(response => { 
+            let legalEntities = response.data;
+            // console.log(JSON.stringify(legalEntities));
+            this.legalEntities = [].concat(legalEntities);
+            this.selected = legalEntities[0];
         });
     }
     
@@ -285,50 +286,6 @@ class LegalEntityController {
         } 
         // save the new or modified contact person by updating the legal entity            
         this.legalEntityService.updateLegalEntity(this.selected);
-    }
-        
-    // test/debug functions
-    viewLegalEntityJson($event) {
-        let self = this;
-        if (this.selected != null && this.selected._id != null) {
-            let leJson = JSON.stringify(this.selected);            
-            self.$mdDialog.show(
-                    self.$mdDialog
-                        .alert()
-                        .clickOutsideToClose(true)
-                        .title('Legal Entity JSON')
-                        .content(leJson)
-                        .ok('Ok')
-                        .targetEvent($event)
-            );
-        }
-    }
-    
-    viewLegalEntityGHSTS($event) {
-        let self = this;
-        if (this.selected != null && this.selected._id != null) {   
-            this.legalEntityService.getLegalEntityGHSTSById(this.selected._id).then(xml =>              
-                self.$mdDialog.show(
-                        self.$mdDialog
-                            .alert()
-                            .clickOutsideToClose(true)
-                            .title('Legal Entity GHSTS')
-                            .content(xml)
-                            .ok('Ok')
-                            .targetEvent($event)
-                    )
-            );
-        };
-    }
-    
-    initializeLE(){
-        // read from sample ghsts and populate the database with legal entities.       
-        this.legalEntityService.initializeLE();
-    }
-    
-    addTestLE(){
-        // read from sample ghsts and populate the database with legal entities.       
-        this.legalEntityService.addLegalEntityToDB();
     }
 }
 
