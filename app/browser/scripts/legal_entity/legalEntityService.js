@@ -11,16 +11,25 @@ class LegalEntityService {
         return this.$http.get('http://localhost:3000/legal_entities');
     }
 
-    /*
-    getLegalEntities() {        
-        let deferred = this.$q.defer();
-        this.legalEntities.find({}, function (err, rows) {
-            if (err) deferred.reject(err);
-            deferred.resolve(rows);
-        });      
-        return deferred.promise;  
+    getLegalEntityByName(name) {
+        return this.$http.get('http://localhost:3000/legal_entities/names/' + name);
+    }
+    
+    getLegalEntityById(id) {
+        // get le by nedb _id
+        return this.$http.get('http://localhost:3000/legal_entities/ids/' + id );
     }
 
+    getLegalEntityByLEId(leId) {
+        // get le by le identifier
+        return this.$http.get('http://localhost:3000/legal_entities/identifiers/' + identifier );
+    }
+
+    updateLegalEntity(legalEntity) {
+        return this.$http.put('http://localhost:3000/legal_entities', legalEntity );
+    }
+
+    /*
     // return a list of legal entities in role of 'Regulatory Authority'
     getRegulatoryAuthorities() {        
         let deferred = this.$q.defer();
@@ -41,35 +50,11 @@ class LegalEntityService {
         return deferred.promise;  
     }
         
-    getLegalEntityById(id) {
-        let deferred = this.$q.defer();
-        this.legalEntities.find({'_id': id }, function (err, result) {
-            if (err) deferred.reject(err);
-            deferred.resolve(result);
-        });       
-        return deferred.promise;
-    }
     
-    getLegalEntityByLEId(leId) {
-        let deferred = this.$q.defer();
-        this.legalEntities.find({'_identifier': leId }, function (err, result) {
-            if (err) deferred.reject(err);
-            deferred.resolve(result);
-        });       
-        return deferred.promise;
-    }
+    
+    
         
-    getLegalEntityByName(name) {
-        let deferred = this.$q.defer();
-        var re = new RegExp(name, 'i');
-        let condition = { $regex: re };
-        this.legalEntities.find({'LEGALENTITY_NAME': condition }, function (err, result) {
-            if (err) deferred.reject(err);
-            deferred.resolve(result);
-        });  
-        return deferred.promise;        
-    }
-    
+
     createLegalEntity(legalEntity) { 
         let deferred = this.$q.defer();
         this.legalEntities.insert(legalEntity, function (err, result) {
@@ -90,22 +75,7 @@ class LegalEntityService {
         return deferred.promise;
     }
     
-    updateLegalEntity(legalEntity) {
-        let deferred = this.$q.defer();
-        this.legalEntities.update({_id: legalEntity._id}, legalEntity, {}, function (err, numReplaced) {
-            if (err) { 
-                deferred.reject(err);
-                console.log(err);
-            }
-            deferred.resolve(numReplaced);
-        });
-        return deferred.promise;
-    }
     
-    addContactPerson(contactPerson){
-        this.selected.CONTACT_PERSON.push(contactPerson);
-        updateLegalEntity(this.selected);
-    }
 
     // the following are demo related methods.  can be moved to a dedicated test class later    
     getLegalEntityGHSTSById(id) {
