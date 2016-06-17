@@ -182,7 +182,8 @@ class LegalEntityController {
             this.getAllLegalEntities();
         }
         else {            
-            this.legalEntityService.getLegalEntityByName(this.filterText).then(legalEntities => {
+            this.legalEntityService.getLegalEntityByName(this.filterText).then(response => { 
+                let legalEntities = response.data;
                 this.legalEntities = [].concat(legalEntities);
                 this.selected = legalEntities[0];
             });
