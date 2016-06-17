@@ -8,25 +8,33 @@ class LegalEntityService {
 
     // return a list of all legal entities
     getLegalEntities() {   
-        return this.$http.get('http://localhost:3000/legal_entities');
+        return this.$http.get('http://localhost:3000/api/legal_entities');
     }
 
     getLegalEntityByName(name) {
-        return this.$http.get('http://localhost:3000/legal_entities/names/' + name);
+        return this.$http.get('http://localhost:3000/api/legal_entities/names/' + name);
     }
     
     getLegalEntityById(id) {
         // get le by nedb _id
-        return this.$http.get('http://localhost:3000/legal_entities/ids/' + id );
+        return this.$http.get('http://localhost:3000/api/legal_entities/ids/' + id );
     }
 
     getLegalEntityByLEId(leId) {
         // get le by le identifier
-        return this.$http.get('http://localhost:3000/legal_entities/identifiers/' + identifier );
+        return this.$http.get('http://localhost:3000/api/legal_entities/identifiers/' + identifier );
     }
 
     updateLegalEntity(legalEntity) {
-        return this.$http.put('http://localhost:3000/legal_entities', legalEntity );
+        return this.$http.put('http://localhost:3000/api/legal_entities', legalEntity );
+    }
+
+    createLegalEntity(legalEntity) { 
+        return this.$http.post('http://localhost:3000/api/legal_entities', legalEntity );
+    }
+
+    deleteLegalEntity(id) {            
+        return this.$http.delete('http://localhost:3000/api/legal_entities/' + id );
     }
 
     /*
@@ -48,53 +56,6 @@ class LegalEntityService {
             deferred.resolve(rows);
         });      
         return deferred.promise;  
-    }
-        
-    
-    
-    
-        
-
-    createLegalEntity(legalEntity) { 
-        let deferred = this.$q.defer();
-        this.legalEntities.insert(legalEntity, function (err, result) {
-            console.log(err)
-            if (err) deferred.reject(err);
-            deferred.resolve(result);
-        });
-        return deferred.promise;
-    }
-    
-    deleteLegalEntity(id) {            
-        let deferred = this.$q.defer();
-        this.legalEntities.remove({'_id': id}, function (err, res) {
-            if (err) deferred.reject(err);
-            console.log(res);
-            deferred.resolve(res.affectedRows);
-        });                
-        return deferred.promise;
-    }
-    
-    
-
-    // the following are demo related methods.  can be moved to a dedicated test class later    
-    getLegalEntityGHSTSById(id) {
-        // return GHSTS xml from legal entity json. 
-        let deferred = this.$q.defer();
-        this.legalEntities.find({'_id': id }, function (err, result) {
-            if (err) deferred.reject(err);           
-            
-            // retrieved Json from database
-            let leJSON = result[0];
-            // create LegalEntity based on leJSON           
-            let le = new LegalEntity(leJSON);
-            
-            // convert to XML
-            let builder = new xml2js.Builder({rootName: 'LEGAL_ENTITY', attrkey: 'attr$'});            
-            let xml = builder.buildObject(le.toGHSTSJson());    
-            deferred.resolve(xml);        
-        });       
-        return deferred.promise;
     }
     */
 }
