@@ -1,6 +1,8 @@
 # Electron Client ES6
 
-This project is to test a desktop client with node server.
+This project is modified from `electron-ghsts-poc` by spliting the desktop Electron application into a Web client and a REST server. 
+It intends to prove that the same Web technology can be used to produce Desktop, Desktop/REST and Web applications with relative
+ease.  The project `node-server-es6` is used as the REST server, serving out sample GHSTS Legal Entities data.
 
 ## Components and Features
 
@@ -21,21 +23,25 @@ Go to app directory and run `npm install jspm`.
 
 ## Install dependencies
 
-After cloning the repo execute `npm install` in 'app' subdirectory to install all dependencies. For the client, `jspm install` will be invoked automatically as `npm postinstall` script!
+After cloning the repo, execute `npm install` in 'app' subdirectory to install all dependencies. For the client, `jspm install` will be invoked automatically as `npm postinstall` script!
 Since this POC will be refreshed with new dependencies added, please make sure you run `npm install` every time you pull from repository.
 
-## Run the application
+## Run the application as Desktop
 
-Go to the parent directory of 'app' folder, type `electron app`.
+After starting `node-server-es6` by typing `npm run dev`, go to the parent directory of 'app' folder, type `electron app`.
 
+## Run the application as Web
 
-## Debug the browser process 
+After starting `node-server-es6` by typing `npm run dev`, go to 'app' folder, type `gulp web`.
 
-You can easily debug the browser process of the application with built-in Chrome debugger. Once the application is running, go to menu 'View->Toggle Developer Tools'.
+## Debug the browser process of the Desktop Application 
 
-## Debug the main process
+You can easily debug the browser process of the application with built-in Chrome debugger. 
+Once the application is running, go to menu 'View->Toggle Developer Tools'.
 
-You can debug the main process of the application with Visual Studio Code. Go to the parent directory of app, type 'electron -debug app'.  In Visual Studio Code, start debugger by 'Attach'. For electron document on this subject, go to http://electron.atom.io/docs/v0.33.0/tutorial/debugging-main-process/.
+## Debug the Web application 
+
+You can easily debug the browser process of the Web application by using the Chrome debugger. 
 
 ## Creating the Electorn App package
 

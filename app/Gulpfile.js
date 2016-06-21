@@ -3,6 +3,7 @@ var gulp = require('gulp'),
   runSequence = require('run-sequence'),
   rename = require('gulp-rename'),
   electron  = require('gulp-atom-electron'),
+  browserSync = require('browser-sync').create(),
   del = require('del');
 
 gulp.task('transpile:app', function() {
@@ -34,4 +35,15 @@ gulp.task('build', function() {
 
 gulp.task('default', function(){
     return runSequence('clean', 'transpile:app', 'copy:app','build');
-  });
+});
+
+// Static web server
+gulp.task('web', function() {  
+    browserSync.init({
+        notify: false,
+        port: 9000,
+        server: {
+            baseDir: "./browser"
+        }
+    });
+});

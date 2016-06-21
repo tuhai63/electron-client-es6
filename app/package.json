@@ -13,6 +13,7 @@
   "repository": "https://github.com/weifang993/electron-client-es6.git",
   "license": "MIT",
   "devDependencies": {
+    "browser-sync": "^2.13.0",
     "del": "^1.2.0",
     "gulp": "^3.9.0",
     "gulp-atom-electron": "^0.12.0",
