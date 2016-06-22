@@ -1,8 +1,8 @@
 # Electron Client ES6
 
-This project is modified from `electron-ghsts-poc` by spliting the desktop Electron application into a Web client and a REST server. 
+This project is modified from `electron-ghsts-poc` by spliting the desktop Electron application into a remote Desktop or Web client and a REST server. 
 It intends to prove that the same Web technology can be used to produce Desktop, Desktop/REST and Web applications with relative
-ease.  The project `node-server-es6` is used as the REST server, serving out sample GHSTS Legal Entities data.
+ease.  This demo can run either as a remote Desktop or a Web client. The project `node-server-es6` is used as the REST server, serving out sample GHSTS Legal Entities data.
 
 ## Components and Features
 
