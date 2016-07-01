@@ -1,7 +1,7 @@
 # Electron Client ES6
 
 This project is modified from `electron-ghsts-poc` by spliting the desktop Electron application into a remote Desktop or Web client and a REST server. 
-It intends to prove that the same Web technology can be used to produce Desktop, Desktop/REST and Web applications with relative
+It is intended to prove that the same Web technology can be used to produce Desktop, Desktop/REST and Web applications with relative
 ease.  This demo can run either as a remote Desktop or a Web client. The project `node-server-es6` is used as the REST server, serving out sample GHSTS Legal Entities data.
 
 ## Components and Features
@@ -10,6 +10,7 @@ ease.  This demo can run either as a remote Desktop or a Web client. The project
  * Angular 1.x 
  * ES6
  * Angular Material
+ * Docker
 
 ## PreConditions for client
 
@@ -19,7 +20,7 @@ Ensure that the following node packages are installed on your system.
 
 You can install it using `npm install jspm -g` and `npm install electron-prebuilt -g`. 
 It is advisable to locally install jspm in additional to globally installing it to lock the version of jspm for a specific project. 
-Go to app directory and run `npm install jspm`.
+After cloning the repo, go to app directory and run `npm install jspm`.
 
 ## Install dependencies
 
@@ -36,7 +37,7 @@ Go to the parent directory of 'app' folder, type `electron app`.
 
 ## Run the application as Web
 
-Go to 'app' folder, type `gulp web`.
+Go to 'app' folder, type `gulp web`. You can also run the Web application from a Docker container: `[sudo] docker run -d -p 9000:80 weifang993/web-client-es6 /usr/sbin/apache2ctl -D FOREGROUND`, which will run the docker image form Docker Hub.  If you'd like to build the Docker image, run: `[sudo] docker build -t weifang993/web-client-es6 .`. 
 
 ## Debug the browser process of the Desktop Application 
 
