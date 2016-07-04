@@ -37,7 +37,7 @@ Go to the parent directory of 'app' folder, type `electron app`.
 
 ## Run the application as Web
 
-Go to 'app' folder, type `gulp web`. You can also run the Web application from a Docker container: `[sudo] docker run -d -p 9000:80 weifang993/web-client-es6 /usr/sbin/apache2ctl -D FOREGROUND`, which will run the docker image form Docker Hub.  If you'd like to build the Docker image, run: `[sudo] docker build -t weifang993/web-client-es6 .`. 
+Go to 'app' folder, type `gulp web`. You can also run the Web application from a Docker container: `[sudo] docker run -d -p 9000:80 weifang993/web-client-nginx`, which will run the docker image form Docker Hub.  If you'd like to build the Docker image, run: `[sudo] docker build -t weifang993/web-client-nginx .`. 
 
 ## Debug the browser process of the Desktop Application 
 
