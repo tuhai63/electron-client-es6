@@ -1,0 +1,18 @@
+# This docker-compose file launches `electron-client-es6` and `node-server-es6` containers.
+# The container images are automcaticaly downloaded from Docker Hub if no local images found.
+# The `node-server-es6` REST service listens on port 3000, whereas the `electron-client-es6` 
+# Web client application serves up Web GUI at port 9000: `http://localhost:9000`.
+# Make sure these ports are not used before `[sudo] docker-compose up`.
+version: '2.0'
+services:
+  web:
+    image: weifang993/web-client-nginx
+    ports:
+     - "9000:80"
+    depends_on:
+     - server
+  server:
+    image: weifang993/node-server-es6
+    ports:
+     - "3000:3000"
+     

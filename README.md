@@ -48,6 +48,13 @@ Once the application is running, go to menu 'View->Toggle Developer Tools'.
 
 You can easily debug the browser process of the Web application by using the Chrome debugger. 
 
+## Run Docker Compose 
+
+If you have installed Docker Compose on your PC, you can use `docker-compose` to start the REST server and Web application all at the 
+same time.  To do that, go to the root directory of the project where you find the `docker-compose.yml` file.  Type `[sudo] docker-compose up`
+to bring up the client and server components all at once.  Docker automatically downloads prebuilt containers from Docker Hub if it cannot
+find local container images. Refer to https://docs.docker.com/compose/ for more details.
+
 ## Creating the Electorn App package
 
 Execute `gulp` in order to build the electron app.
